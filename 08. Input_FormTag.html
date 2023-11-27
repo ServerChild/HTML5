@@ -10,12 +10,13 @@
   <h1> * 입력양식 관련 태그 * </h1>
 
   <h2> - input태그 </h2>
-  <p> 사용로부터 값을 입력받을 수 있는 텍스트 상자 및 체크박스, 라디오버튼 등을 만들 수 있음 </p>
+  <p> 사용자로부터 값을 입력받는 텍스트 상자 및 체크박스, 라디오버튼 등을 만들 수 있음 </p>
 
   아이디 : <input type="text"><br>
   비밀번호 : <input type="text"><br>
   성별 : <input type="radio">남 &emsp; <input type="radio">여<br>
   <input type="submit">
+
 
   <h1> * 폼 관련 태그 * </h1>
   <p>
@@ -26,17 +27,18 @@
 
     - action속성 : 해당 form에 사용자가 입력한 값을 전달하면서 요청할 서버의 경로 제시
     - method속성 : 요청 전송 방식을 지정하는 속성(get(기본값) | post) <br>
-      > get 방식: 요청시 사용자가 입력한 값들이 url에 노출되는 방식 <br>
-      > post 방식 : 요청시 사용자가 입력한 값들이 url에 노출되지 않는 방식 <br><br>
+       > get 방식 : 요청시 사용자가 입력한 값들이 url에 노출되는 방식 <br>
+       > post 방식 : 요청시 사용자가 입력한 값들이 url에 노출되지 않는 방식 <br><br>
 
     form내의 submit버튼 클릭시 action지정한 서버로 사용자가 입력한 값들이 br>
     넘어가면서 요청됨(사용자가 넣은 값은 key=value 세트로 전달)  
   </p>
 
   <!-- method의 기본값 get -->
+  <!-- search.jsp?keyword = 사용자가 넣은 값(키, 값 쌍으로 넘어감) -->
   <form action="search.jsp"> 
-    검색어 : <input name="keyword"> 
     <!-- type의 기본값 text(생략시 type="text")  -->
+    검색어 : <input name="keyword"> 
     <input type="submit">
   </form>
 
@@ -72,17 +74,18 @@
   <h3> text와 관련된 input 태그의 타입 </h3>
 
   <form action="test.jsp">
-    <h3> type="text" </h3>
+    <h3> type = "text" </h3>
     <p> - 한 줄짜리 텍스트를 입력할 수 있는 텍스트 상자(기본값) </p>
+    <!-- placeholder : 예시를 넣을 때 사용(글씨를 입력하려 하면 사라짐) -->
     아이디 : <input name="userId" placeholder="userid@edu.ac.kr" maxlength="20">
 
     <br><br>
 
-    <h3> type="password" </h3>
-    <p> - 비밀번호를 입력할 수 있는 텍스트 상자 </p>
+    <h3> type = "password" </h3>
+    <p> - 비밀번호를 입력할 수 있는 텍스트 상자(입력하면 입력된 값이 ㆍ으로 보임) </p>
     비밀번호 : <input type="password" name="pw">
 
-    <h3> type="search | url | email | tel" </h3>
+    <h3> type = "search | url | email | tel" </h3>
     <p> - 겉모습은 일반 텍스트 상자와 유사하지만 각각의 정보에 맞게 세분화된 기능 제공 </p>
     <!-- 글씨 옆에 x 표시가 됨-->
     검색 : <input type="search" name="q"> 
@@ -111,11 +114,12 @@
 
 
   <h2> textarea 태그 </h2>
-  <p>- 텍스트 상자로 여러줄 입력할 수 있음</p>
+  <p> - 텍스트 상자로 여러 줄 입력할 수 있음 </p>
   <form action="test.jsp" method="post">
     <fieldset>
       <legend> 글작성 </legend>
       제목 : <input name="title" size="32"><br>
+      <!-- cols : 열(byte 단위), rows : 행 -->
       내용 : <textarea name="content" cols="35" rows="10"></textarea>
     </fieldset>
     <br>
@@ -127,16 +131,16 @@
 
   <h2> 숫자와 관련된 input태그의 타입 </h2>
   <form action="test.jsp">
-    <h3> type="number" </h3>
+    <h3> type = "number" </h3>
     <p>
-      - 숫자값만 작성가능한 텍스트 상자 <br>
+      - 숫자 값만 작성 가능한 텍스트 상자 <br>
       - 스핀박스가 표시됨
     </p>
 
     수량 : <input type="number" name="amount" min="0" max="100" value="50" step="5">
     <br><br>
 
-    <h3> type="range" </h3>
+    <h3> type = "range" </h3>
     <p> - 슬라이드바를 통한 숫자 지정 가능 </p>
 
     점수 : <input type="range" name="score" min="0" max="100" step="10">
@@ -150,7 +154,7 @@
 
   <h2> 날짜 및 시간과 관련된 타입 </h2>
   <form action="test.jsp">
-    <h3> type="date | month | week | datetime-local" </h3>
+    <h3> type = "date | month | week | datetime-local" </h3>
 
     <!-- 연도, 월, 일 입력받을 수 있는 텍스트 상자-->
     date : <input type="date" name="dateIn">
@@ -178,7 +182,7 @@
     <br><br>
 
     <input type="submit">
-    <!-- 폼 안의 모든 정보를 초기화 함-->
+    <!-- reset : 폼 안의 모든 정보를 초기화 함 -->
     <input type="reset">
   </form>
 
@@ -191,7 +195,7 @@
     <p>
       - 여러개 값들 중 오로지 한개만 선택가능 <br>
       - 서버로 value값이 전송 <br>
-      - <mark> name속성 </mark>의 값이 같아야 한개만 선택할 수 있음
+      - <mark> name속성 </mark>의 값이 같아야 한개만 선택할 수 있음(하나의 그룹으로 인식)
     </p>
     <fieldset>
       성별 :
@@ -219,7 +223,7 @@
   <br><br>
 
   <form action="test.jsp">
-    <h3> 체크박스(type="checkbox") </h3>
+    <h3> 체크박스(type = "checkbox") </h3>
     <p>
       - 제시한 여러 개의 값들 중 여러 개를 선택할 수 있음
       - 서버로 value의 값이 전송됨
@@ -241,17 +245,17 @@
 
   <h2> 추가적인 input태그 타입 </h2>
   <form action="test.jsp">
-    <h3> type="color" </h3>
+    <h3> type = "color" </h3>
     <p> - 색상을 선택할 수 있는 input 타입 </p>
     색상선택 : <input type="color" name="color">
     <br>
 
-    <h3> type="file" </h3>
+    <h3> type = "file" </h3>
     <p> - 첨부하고자 하는 파일을 선택할 수 있는 input 타입 </p>
     첨부파일 : <input type="file" name="uploadfile">
     <br>
 
-    <h3> type="submit | reset | button" </h3>
+    <h3> type = "submit | reset | button" </h3>
     <!-- 이 버튼이 들어있는 form의 모든 값들을 서버로 전송 -->
     <input type = "submit">
 
@@ -261,7 +265,7 @@
     <!-- 일반버튼 : 사용자정의로 하고 싶을 때 -->
     <input type = "button" value="일반버튼">
   
-    <h3>button[type="submit|reset|button"]</h3>
+    <h3> button[type = "submit | reset | button"] </h3>
 
     <!-- button type의 기본값=submit-->
     <button type="submit"> 제출 </button>
@@ -276,7 +280,7 @@
 
   <h2> * select태그와 option태그 </h2>
   <p>
-    - 사용자에게 직접 키보드로 입력받는것이 아니라 내가 제시한 옵션들중에서 선택할 수 있는 태그
+    - 사용자에게 직접 키보드로 입력받는것이 아니라 내가 제시한 옵션들 중에서 선택할 수 있는 태그
     - 제출시 현재 선택된(selected) option값이 넘어감
   </p>
   <form action="test.jsp">
@@ -292,6 +296,7 @@
     <br><br>
 
     메뉴선택 :
+    <!-- multiple : 제시한 값 중에 여러개를 선택할 수 있게 할 때 -->
     <select name="menu" multiple>
       <option value="김치찌개"> 김치찌개 </option>
       <option value="된장찌개" selected> 된장찌개 </option>
@@ -299,6 +304,28 @@
       <option value="김밥"> 김밥 </option>
       <option value="자장면"> 자장면 </option>
     </select>
+
+    <br><br>
+
+    <!-- optgroup : option을 하나의 그룹으로 묶어주는 태그 -->
+    수강신청 : 
+    <select>
+      <optgroup label="공과대학">
+        <option value="archi"> 건축공학과 </option>
+        <option value="mechanic"> 기계공학과 </option>
+        <option value="indust"> 산업공학과 </option>
+        <option value="elec"> 전기전자공학과 </option>
+        <option value="computer"> 컴퓨터공학과 </option>
+        <option value="chemical"> 화학공학과 </option>
+      </optgroup>
+
+      <optgroup label="인문대학">
+        <option value="history"> 사학과 </option>
+        <option value="lang"> 어문학과 </option>
+        <option value="phil"> 철학과 </option>
+      </optgroup>
+    </select>
+
 
     <h3> html5에서 새로 추가된 기능 datalist </h3>
     <p>
